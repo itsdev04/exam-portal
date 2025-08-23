@@ -2,6 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
+                <mat-card>
                 <h1 class="text-center">Register Here!!</h1>
                 <form *ngIf="user" #registerForm="ngForm" (ngSubmit)="formSubmit(registerForm)" action="">
                     <mat-form-field class="full-width" appearance="outline">
@@ -40,6 +41,7 @@
                         <button style="margin-left: 20px;" mat-raised-button color="accent">Reset</button>
                     </div>
                 </form>
+                </mat-card>
             </div>
         </div>
     </div>

@@ -8,24 +8,32 @@ import { UserService } from '../../services/user.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2'
 import { RegisterUser } from '../../data-type';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [CommonModule,
-    MatSnackBarModule, MatSelectModule, MatInputModule, MatFormFieldModule, FormsModule, JsonPipe],
+    MatSnackBarModule,
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
 export class SignupComponent implements OnInit {
   public user: RegisterUser = {
-  username: '',
-  password: '',
-  firstname: '',
-  lastname: '',
-  email: '',
-  phone: ''
-};
+    username: '',
+    password: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+    phone: ''
+  };
 
   constructor(private userService: UserService, private snackbar: MatSnackBar) { }
   ngOnInit(): void {
@@ -34,8 +42,8 @@ export class SignupComponent implements OnInit {
   formSubmit(registerForm: NgForm): any {
     console.log("Form submitted ", registerForm.value);
     console.log(JSON.stringify(registerForm.value));
-    
-    this.userService.registerUser(this.user).subscribe((data:RegisterUser) => {
+
+    this.userService.registerUser(this.user).subscribe((data: RegisterUser) => {
       console.log(data);
       Swal.fire({
         title: 'Success!',
