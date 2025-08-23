@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: User Registration API
+  version: 1.0.0
+  description: API for registering a new user
+
+servers:
+  - url: https://api.example.com/v1
+    description: Production server
+
+paths:
+  /register:
+    post:
+      summary: Register a new user
+      operationId: registerUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterUser'
+      responses:
+        '201':
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterUserResponse'
+        '400':
+          description: Invalid input
+        '500':
+          description: Server error
+
+components:
+  schemas:
+    RegisterUserResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Newly created user’s unique identifier
+        username:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+      required:
+        - id
+        - username
+        - firstname
+        - lastname
+        - email
+        - phone  
+    RegisterUser:
+      type: object
+      required:
+        - username
+        - password
+        - firstname
+        - lastname
+        - email
+        - phone
+      properties:
+        username:
+          type: string
+          example: johndoe
+        password:
+          type: string
+          format: password
+          example: strongP@ssw0rd
+        firstname:
+          type: string
+          example: John
+        lastname:
+          type: string
+          example: Doe
+        email:
+          type: string
+          format: email
+          example: johndoe@example.com
+        phone:
+          type: string
+          example: "+1234567890"
