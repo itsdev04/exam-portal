@@ -1,3 +1,26 @@
-<mat-toolbar>
-  <span>My Application</span>
+<mat-toolbar color="primary">
+  <a routerLink="/" matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu_book</mat-icon>
+  </a>
+  <span>Exam Portal</span>
+  <span class="example-spacer"></span>
+  <a *ngIf="!loginService.isUserLoggedIn()" mat-icon-button class="example-icon favorite-icon" aria-label="Login">
+
+    Login
+  </a>
+
+  <a *ngIf="!loginService.isUserLoggedIn()" 
+  mat-icon-button [routerLink]="'/sign-up'" class="example-icon favorite-icon mr20 ml20" aria-label="Register">
+
+    Register
+  </a>
+   <a *ngIf="loginService.isUserLoggedIn()" mat-icon-button 
+    style="margin-right: 50px" class="example-icon favorite-icon mr20 ml20" >
+    LOGIN SUCCESSUFUL
+
+  </a>
+  <a (click)="logout()" *ngIf="loginService.isUserLoggedIn()" mat-icon-button class="example-icon favorite-icon mr20 ml20" aria-label="Register">
+    Logout
+  </a>
+
 </mat-toolbar>

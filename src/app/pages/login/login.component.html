@@ -4,16 +4,17 @@
             <div class="col-md-6 offset-md-3">
                 <mat-card>
                 <h1 class="text-center">Login Here!!</h1>
-                <form action="">
+                {{loginData | json}}
+                <form #loginForm="ngForm"  (ngSubmit)="formSubmit(loginForm)">
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Username</mat-label>
-                        <input required matInput placeholder="Enter here" name="username">
-                        <mat-hint>Username must be unique!!</mat-hint>
+                        <input [(ngModel)]="loginData.username" name="username" matInput placeholder="Enter here" name="username">
+                    
                     </mat-form-field>
 
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input required matInput type="password" placeholder="Enter here" name="password">
+                        <input [(ngModel)]="loginData.password" name="password" matInput type="password" placeholder="Enter here" name="password">
                     </mat-form-field>
 
                     <div class="container text-center">
