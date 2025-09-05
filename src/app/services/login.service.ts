@@ -3,6 +3,7 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import baseUrl from './helper';
 import { isPlatformBrowser } from '@angular/common';
 import { Subject } from 'rxjs';
+import { RegisterUser } from '../data-type';
 
 @Injectable({
   providedIn: 'root'
@@ -76,14 +77,17 @@ export class LoginService {
     localStorage.setItem("user", JSON.stringify(user));
   }
 
-  public getUser() {
-    if (typeof window !== 'undefined' && localStorage.getItem('user')) {
-      return JSON.parse(localStorage.getItem('user')!);
-    } else {
-      this.logout();
-      return null;
+ public getUser(): RegisterUser | null {
+  if (typeof window !== 'undefined') {
+    const userJson = localStorage.getItem('user');
+    if (userJson) {
+      const user: RegisterUser = JSON.parse(userJson);
+      console.log("[LoginService] getUser - username:", user.username);
+      return user;
     }
   }
+  return null;
+}
 
 
   //get user role

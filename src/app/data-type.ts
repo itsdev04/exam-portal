@@ -1,3 +1,7 @@
+export interface Authority {
+  authority: string;
+}
+
 export interface RegisterUser {
     username: string;
     password: string;
@@ -5,4 +9,5 @@ export interface RegisterUser {
     lastName: string;
     email: string;
     phone: string;
+    authorities?: Authority[];
 }

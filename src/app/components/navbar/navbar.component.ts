@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
+import { RegisterUser } from '../../data-type';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,7 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent implements OnInit {
 
   isLoggedIn = false
-  user = null
+   user: RegisterUser | null = null;
 
   constructor(public loginService: LoginService) { }
 

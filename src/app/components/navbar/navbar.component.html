@@ -17,10 +17,10 @@
   <a *ngIf="!isLoggedIn" mat-button [routerLink]="'/sign-up'" class="favorite-icon mr20 ml20" aria-label="Register">
     Register
   </a>
-  
+
 <!-- Show when logged in -->
 <button *ngIf="isLoggedIn && user" mat-button class="favorite-icon ml20" disabled>
-  {{ user.username }}
+  {{user.username}}
 </button>
 
 
