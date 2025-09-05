@@ -1,1 +1,54 @@
-<p>profile works!</p>
+<mat-card *ngIf="user">
+    <h1>Your profile detail</h1>
+    {{user | json}}
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <div class="container text-center">
+                    <img src="data:image/jpeg;base64,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"
+                        alt="">
+                    <h1>{{user.firstName}} {{user.lastName}}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <table class="table text-center">
+                            <tr>
+                                <td>Username</td>
+                                <td>{{user.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>ID</td>
+                                <td>EXAM{{user.id}}</td>
+                            </tr>
+                            <tr>
+                                <td>ROLE</td>
+                                <td>{{ userRole }}</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>STATUS</td>
+                                <td>{{user.enabled}}</td>
+                            </tr>
+                            <tr *ngIf="user.phone">
+                                <td>PHONE</td>
+                                <td>{{user.phone}}</td>
+                            </tr>
+                            <tr>
+                                <td>EMAIL</td>
+                                <td>{{user.email}}</td>
+                            </tr>
+                        </table>
+
+                        <mat-card-actions>
+                            <button mat-raised-button color="primary">LIKE</button>
+                            <button mat-raised-button color="accent">SHARE</button>
+                        </mat-card-actions>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>

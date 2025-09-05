@@ -8,6 +8,7 @@ import { adminGuard } from './guard/admin.guard';
 import { normalGuard } from './guard/normal.guard';
 import path from 'path';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -18,6 +19,10 @@ export const routes: Routes = [
         children: [{
             path: "profile",
             component: ProfileComponent
+        },
+    {
+            path: "",
+            component: WelcomeComponent
         }]
     },
     { path: "user-dashboard", component: UserDashboardComponent, pathMatch: 'full', canActivate: [normalGuard] }

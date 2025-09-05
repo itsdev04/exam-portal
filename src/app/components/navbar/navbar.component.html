@@ -19,7 +19,7 @@
   </a>
 
 <!-- Show when logged in -->
-<button *ngIf="isLoggedIn && user" mat-button class="favorite-icon ml20" disabled>
+<button routerLink="/admin-dashboard/profile" *ngIf="isLoggedIn && user" mat-button class="favorite-icon ml20">
   {{user.username}}
 </button>
 

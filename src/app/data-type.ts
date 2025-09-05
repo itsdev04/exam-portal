@@ -3,6 +3,7 @@ export interface Authority {
 }
 
 export interface RegisterUser {
+  id:string;
     username: string;
     password: string;
     firstName: string;
@@ -10,4 +11,5 @@ export interface RegisterUser {
     email: string;
     phone: string;
     authorities?: Authority[];
+    enabled: string
 }

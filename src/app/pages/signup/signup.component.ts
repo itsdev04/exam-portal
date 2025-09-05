@@ -27,12 +27,14 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class SignupComponent implements OnInit {
   public user: RegisterUser = {
+    id:'',
     username: '',
     password: '',
     firstName: '',
     lastName: '',
     email: '',
-    phone: ''
+    phone: '',
+    enabled:''
   };
 
   constructor(private userService: UserService, private snackbar: MatSnackBar) { }
