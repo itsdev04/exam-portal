@@ -6,11 +6,19 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { adminGuard } from './guard/admin.guard';
 import { normalGuard } from './guard/normal.guard';
+import path from 'path';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
     { path: "login", component: LoginComponent },
     { path: "sign-up", component: SignupComponent },
-    { path: "admin-dashboard", component: AdminDashboardComponent, pathMatch: 'full', canActivate: [adminGuard] },
+    {
+        path: "admin-dashboard", component: AdminDashboardComponent, canActivate: [adminGuard],
+        children: [{
+            path: "profile",
+            component: ProfileComponent
+        }]
+    },
     { path: "user-dashboard", component: UserDashboardComponent, pathMatch: 'full', canActivate: [normalGuard] }
 ];
