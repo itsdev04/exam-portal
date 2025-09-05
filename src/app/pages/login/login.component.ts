@@ -8,6 +8,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
     password: ''
   }
 
-  constructor(private loginService: LoginService, private snackbar: MatSnackBar) { }
+  constructor(private loginService: LoginService, private snackbar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -68,10 +69,14 @@ export class LoginComponent implements OnInit {
           //redirect NORMAL ..... to normal dashboard
           if(this.loginService.getuserRole()=="ADMIN"){
             console.log("admin-dashboard");
-            window.location.href = '/admin-dashboard'
+           // window.location.href = '/admin-dashboard'
+            this.router.navigate(['admin-dashboard'])
+            this.loginService.loginStatusSubject.next(true);
           } else if(this.loginService.getuserRole() == "NORMAL"){
             console.log("normal user-dashboard");
-            window.location.href = '/user-dashboard'
+           // window.location.href = '/user-dashboard'
+            this.router.navigate(['user-dashboard'])
+            this.loginService.loginStatusSubject.next(true);
           } else{
             this.loginService.logout();
           }

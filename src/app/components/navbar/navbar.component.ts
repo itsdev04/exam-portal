@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
@@ -14,16 +14,31 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit {
 
-  constructor(public loginService:LoginService){}
-  
+  isLoggedIn = false
+  user = null
+
+  constructor(public loginService: LoginService) { }
+
   ngOnInit(): void {
-    
+    this.isLoggedIn = this.loginService.isUserLoggedIn();
+    this.user = this.loginService.getUser();
+
+    this.loginService.loginStatusSubject.asObservable().subscribe((data) => {
+
+      this.isLoggedIn = this.loginService.isUserLoggedIn();
+      this.user = this.loginService.getUser();
+      console.log("[NavbarComponent] ngOnInit user: ",this.user);
+
+    })
   }
 
-  public logout(){
+  public logout() {
     this.loginService.logout();
-    window.location.reload();
+    // this.isLoggedIn = false;
+    // this.user = null;
+     window.location.reload();
+    //this.loginService.loginStatusSubject.next(false);
   }
 }

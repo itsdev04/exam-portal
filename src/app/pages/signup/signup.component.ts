@@ -29,8 +29,8 @@ export class SignupComponent implements OnInit {
   public user: RegisterUser = {
     username: '',
     password: '',
-    firstname: '',
-    lastname: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: ''
   };

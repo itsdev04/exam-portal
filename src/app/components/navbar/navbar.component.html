@@ -1,26 +1,30 @@
 <mat-toolbar color="primary">
-  <a routerLink="/" matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
+  <!-- Left side: Logo/Menu -->
+  <a routerLink="/" mat-icon-button class="example-icon" aria-label="Home">
     <mat-icon>menu_book</mat-icon>
   </a>
   <span>Exam Portal</span>
-  <span class="example-spacer"></span>
-  <a *ngIf="!loginService.isUserLoggedIn()" mat-icon-button class="example-icon favorite-icon" aria-label="Login">
 
+  <!-- Spacer pushes the next items to the right -->
+  <span class="spacer"></span>
+
+  <!-- Right side: Conditional buttons -->
+  <!-- Show when NOT logged in -->
+  <a *ngIf="!isLoggedIn" mat-button [routerLink]="'/login'" class="favorite-icon" aria-label="Login">
     Login
   </a>
 
-  <a *ngIf="!loginService.isUserLoggedIn()" 
-  mat-icon-button [routerLink]="'/sign-up'" class="example-icon favorite-icon mr20 ml20" aria-label="Register">
-
+  <a *ngIf="!isLoggedIn" mat-button [routerLink]="'/sign-up'" class="favorite-icon mr20 ml20" aria-label="Register">
     Register
   </a>
-   <a *ngIf="loginService.isUserLoggedIn()" mat-icon-button 
-    style="margin-right: 50px" class="example-icon favorite-icon mr20 ml20" >
-    LOGIN SUCCESSUFUL
+  
+<!-- Show when logged in -->
+<button *ngIf="isLoggedIn && user" mat-button class="favorite-icon ml20" disabled>
+  {{ user.username }}
+</button>
 
-  </a>
-  <a (click)="logout()" *ngIf="loginService.isUserLoggedIn()" mat-icon-button class="example-icon favorite-icon mr20 ml20" aria-label="Register">
+
+  <a *ngIf="isLoggedIn" (click)="logout()" mat-button class="favorite-icon mr20 ml20" aria-label="Logout">
     Logout
   </a>
-
 </mat-toolbar>

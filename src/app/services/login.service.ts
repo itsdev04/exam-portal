@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import baseUrl from './helper';
 import { isPlatformBrowser } from '@angular/common';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,14 @@ export class LoginService {
 
   //constructor(private httpClient: HttpClient) { }
 
+  public loginStatusSubject = new Subject<boolean>();
   private isBrowser: boolean;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private httpClient: HttpClient) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
-  public getCurrentUser(){
+  public getCurrentUser() {
     return this.httpClient.get(`${baseUrl}/current-user`);
   }
 
@@ -28,6 +30,7 @@ export class LoginService {
   //store or set token in local storage
   public loginUser(token: string) {
     localStorage.setItem('token', token);
+    return true;
   }
 
   //isUserLoggedIn to check token is available in local storage
@@ -40,7 +43,7 @@ export class LoginService {
   //   }
   // }
 
-    public isUserLoggedIn(): boolean {
+  public isUserLoggedIn(): boolean {
     // Only access localStorage if the code is running in a browser
     if (this.isBrowser) {
       let token = localStorage.getItem("token");
@@ -55,9 +58,11 @@ export class LoginService {
   }
 
   //remove token from local storage - logout
-  public logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+  public logout(): boolean {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+    }
     return true;
   }
 
@@ -72,18 +77,22 @@ export class LoginService {
   }
 
   public getUser() {
-    let user = localStorage.getItem('user');
-    if (user != null) {
-      return JSON.parse(user);
+    if (typeof window !== 'undefined' && localStorage.getItem('user')) {
+      return JSON.parse(localStorage.getItem('user')!);
     } else {
       this.logout();
       return null;
     }
   }
 
+
   //get user role
-  public getuserRole(){
-    let user = this.getUser();
-    return user.authorities; //to be checked in backend
+  public getuserRole(): string | null {
+    const user = this.getUser();
+    if (user && user.authorities && user.authorities.length > 0) {
+      return user.authorities[0].authority;
+    }
+    return null;
   }
+
 }

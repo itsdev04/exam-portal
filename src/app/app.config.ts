@@ -3,13 +3,14 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { authInterceptorProviders } from './services/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
     // IMPORTANT: Register class-based interceptors with withInterceptorsFromDi()
     provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withFetch()),
     authInterceptorProviders,
     provideClientHydration(withEventReplay())]
 };
