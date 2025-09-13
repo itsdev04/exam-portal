@@ -9,6 +9,8 @@ import { normalGuard } from './guard/normal.guard';
 import path from 'path';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -23,6 +25,14 @@ export const routes: Routes = [
     {
             path: "",
             component: WelcomeComponent
+        },
+    {
+            path: "categories",
+            component: ViewCategoriesComponent
+        },
+    {
+            path: "add-category",
+            component: AddCategoryComponent
         }]
     },
     { path: "user-dashboard", component: UserDashboardComponent, pathMatch: 'full', canActivate: [normalGuard] }
