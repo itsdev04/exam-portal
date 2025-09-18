@@ -1,16 +1,9 @@
-<mat-card>
-    <mat-list>
-        <div mat-subheader>
-            All categories
-        </div>
-        <mat-list-item *ngFor="let c of categories">
-            <mat-icon mat-list-icon>category</mat-icon>
-            <div mat-line>{{c.title}}</div>
-            <div mat-line>{{c.description}}</div>
-            <mat-divider></mat-divider>
-        </mat-list-item>
-    </mat-list>
-    <div class="container text-center mt20">
-        <button mat-raised-button color="primary">Add New Category</button>
+<mat-card *ngFor="let c of categories" class="mb-3">
+  <div class="d-flex align-items-center justify-content-between">
+    <mat-icon color="primary" class="me-3">category</mat-icon>
+    <div class="flex-grow-1">
+      <div class="fw-bold">{{ c.title }}</div>
+      <div class="text-muted">{{ c.description }}</div>
     </div>
+  </div>
 </mat-card>

@@ -19,24 +19,24 @@ export class ViewCategoriesComponent implements OnInit{
     {
       "cid":1,
       "title":"Programming",
-      "description":"This is programming caterotye"
-    },{
-      "cid":1,
-      "title":"Bihar GK",
-      "description":"This is programming caterotye"
-    },{
-      "cid":1,
-      "title":"Socail Scien",
-      "description":"This is programming caterotye"
-    },{
-      "cid":1,
-      "title":"Food",
-      "description":"This is programming caterotye"
-    },{
-      "cid":1,
-      "title":"Tour and Travel",
-      "description":"This is programming caterotye"
-    },
+      "description":"This is programming caterotye"}
+    // },{
+    //   "cid":1,
+    //   "title":"Bihar GK",
+    //   "description":"This is programming caterotye"
+    // },{
+    //   "cid":1,
+    //   "title":"Socail Scien",
+    //   "description":"This is programming caterotye"
+    // },{
+    //   "cid":1,
+    //   "title":"Food",
+    //   "description":"This is programming caterotye"
+    // },{
+    //   "cid":1,
+    //   "title":"Tour and Travel",
+    //   "description":"This is programming caterotye"
+    // },
   ]
 
   constructor(private categoryService: CategoryService){
