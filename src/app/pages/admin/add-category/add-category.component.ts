@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatCard, MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,6 +10,16 @@ import { MatInput } from "@angular/material/input";
   templateUrl: './add-category.component.html',
   styleUrl: './add-category.component.css'
 })
-export class AddCategoryComponent {
+export class AddCategoryComponent implements OnInit{
+
+  category = {
+    'title':'',
+    'description': ''
+  }
+  constructor() {}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
 
 }

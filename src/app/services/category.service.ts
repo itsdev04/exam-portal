@@ -13,4 +13,9 @@ export class CategoryService {
   public categories(){
     return this.httpClient.get(`${baseUrl}/category/`)
   }
+
+  //add new category
+  public addCategory(category:any){
+    return this.httpClient.post(`${baseUrl}/category/`, category)
+  }
 }
