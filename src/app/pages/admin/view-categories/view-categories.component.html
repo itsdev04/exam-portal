@@ -1,4 +1,4 @@
-<mat-card *ngFor="let c of categories" class="mb-3">
+<!-- <mat-card *ngFor="let c of categories" class="mb-3">
   <div class="d-flex align-items-center justify-content-between">
     <mat-icon color="primary" class="me-3">category</mat-icon>
     <div class="flex-grow-1">
@@ -6,4 +6,12 @@
       <div class="text-muted">{{ c.description }}</div>
     </div>
   </div>
+</mat-card> -->
+
+<mat-card class="mt20 mr20 ml20" *ngFor="let c of categories">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{c.title}}</mat-card-title>
+        <mat-card-subtitle>{{c.description}}</mat-card-subtitle>
+    </mat-card-header>
 </mat-card>
