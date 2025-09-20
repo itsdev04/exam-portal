@@ -7,11 +7,17 @@ import baseUrl from './helper';
 })
 export class QuizService {
 
-  constructor(private _http:HttpClient) {
-   }
+  constructor(private _http: HttpClient) {
+  }
 
-   public quizzes(){
+  public quizzes() {
 
     return this._http.get(`${baseUrl}/quiz/`);
-   }
+  }
+
+  public addQuiz(quiz: any) {
+    console.log("Sending quiz data to backend api: ",quiz);
+    return this._http.post(`${baseUrl}/quiz/`, quiz);
+  }
+
 }

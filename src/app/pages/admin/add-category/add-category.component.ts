@@ -6,10 +6,11 @@ import { MatInput } from "@angular/material/input";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CategoryService } from '../../../services/category.service';
 import Swal from 'sweetalert2';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-add-category',
-  imports: [MatInput, FormsModule, MatCardModule, MatFormFieldModule],
+  imports: [MatInput, FormsModule, MatCardModule, MatFormFieldModule, MatButtonModule],
   templateUrl: './add-category.component.html',
   styleUrl: './add-category.component.css'
 })
