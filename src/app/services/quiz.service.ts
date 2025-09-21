@@ -20,4 +20,9 @@ export class QuizService {
     return this._http.post(`${baseUrl}/quiz/`, quiz);
   }
 
+  public deleteQuiz(quizId: number){
+    console.log("Sending quizId to backend for delete: ", quizId);
+    return this._http.delete(`${baseUrl}/quiz/${quizId}`);
+  }
+
 }
