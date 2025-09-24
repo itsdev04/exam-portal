@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { QuestionService } from '../../../services/question.service';
 import { MatCard, MatCardModule } from "@angular/material/card";
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider'; 
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-view-quiz-questions',
   standalone: true,
-  imports: [MatCard, MatCardModule, CommonModule, MatButtonModule, MatDividerModule],
+  imports: [MatCard, MatCardModule, CommonModule, MatButtonModule, MatDividerModule, RouterLink],
   templateUrl: './view-quiz-questions.component.html',
   styleUrls: ['./view-quiz-questions.component.css']
 })

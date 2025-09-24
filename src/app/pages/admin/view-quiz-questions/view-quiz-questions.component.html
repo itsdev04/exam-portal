@@ -1,7 +1,13 @@
 <h1>View Questions for Quiz: {{qTitle}}</h1>
-<div class="bootstrapper-wrapper">
+<div class="bootstrapper-wrapper mt20">
     <div class="row">
         <div class="col-md-12">
+            <div class="container text-center">
+                <button mat-raised-button color="primary" [routerLink]="['/admin-dashboard/add-question/', qId, qTitle]">
+                    Add Question
+                </button>
+            </div>
+
             <mat-card *ngFor="let q of questions; let i = index" class="mb-3">
                 <mat-card-content>
                     <p>
@@ -12,7 +18,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <p><b>Option 1 </b>{{q.option1}}</p>
-                            </div><div class="col-md-6">
+                            </div>
+                            <div class="col-md-6">
                                 <p><b>Option 2 </b>{{q.option2}}</p>
                             </div>
                             <div class="col-md-6">

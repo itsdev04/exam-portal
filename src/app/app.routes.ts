@@ -6,7 +6,6 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { adminGuard } from './guard/admin.guard';
 import { normalGuard } from './guard/normal.guard';
-import path from 'path';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
@@ -15,6 +14,7 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -53,6 +53,10 @@ export const routes: Routes = [
         {
             path: "view-questions/:quizId/:quizTitle",
             component: ViewQuizQuestionsComponent
+        },
+        {
+            path: "add-question/:quizId/:quizTitle",
+            component: AddQuestionComponent
         }]
     },
     { path: "user-dashboard", component: UserDashboardComponent, pathMatch: 'full', canActivate: [normalGuard] }
