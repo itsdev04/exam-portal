@@ -1,0 +1,32 @@
+<h1>View Questions for Quiz: {{qTitle}}</h1>
+<div class="bootstrapper-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-card *ngFor="let q of questions; let i = index" class="mb-3">
+                <mat-card-content>
+                    <p>
+                        <b>Question {{i+1}}</b>
+                        <span class="ml20" [innerHTML]="q.content"></span>
+                    </p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><b>Option 1 </b>{{q.option1}}</p>
+                            </div><div class="col-md-6">
+                                <p><b>Option 2 </b>{{q.option2}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>Option 3 </b>{{q.option3}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>Option 4 </b>{{q.option4}}</p>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <p><b>Correct Answer: </b>{{q.answer}}</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
