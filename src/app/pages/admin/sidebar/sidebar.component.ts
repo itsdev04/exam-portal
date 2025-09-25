@@ -14,5 +14,8 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+logout() {
+throw new Error('Method not implemented.');
+}
 
 }

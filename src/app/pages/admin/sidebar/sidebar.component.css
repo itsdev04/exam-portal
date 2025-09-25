@@ -1,0 +1,35 @@
+/* Style for the active menu item */
+.active-list-item {
+  background-color: var(--mat-list-item-hover-state-layer-color, rgba(0, 0, 0, 0.04));
+  border-left: 5px solid var(--mat-list-item-state-layer-color, #3f51b5); /* Adjust the color */
+  color: var(--mat-list-item-state-layer-color, #3f51b5);
+}
+
+/* Adjust the icon size and alignment */
+.mat-list-item .mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Improve hover and focus states for all items */
+.mat-nav-list .mat-list-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* General card styling for a clean look */
+mat-card {
+  width: 250px;
+  min-height: 100vh;
+  padding: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: none; /* Optional: Remove shadow for a flatter design */
+}
+
+/* Add some spacing for the subheader */
+.mat-subheader {
+  padding: 16px 16px 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

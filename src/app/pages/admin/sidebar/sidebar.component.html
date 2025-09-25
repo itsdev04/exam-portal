@@ -1,42 +1,37 @@
 <mat-card>
-    <mat-action-list>
-        <div mat-subheader>
-            Menu
-        </div>
+  <mat-nav-list>
+    <div mat-subheader>
+      Menu
+    </div>
 
-        <button mat-list-item [routerLink]="'/admin-dashboard'">
-            <mat-icon mat-list-icon>home</mat-icon>
-            Home
-        </button>
+    <a mat-list-item [routerLink]="'/admin-dashboard'" routerLinkActive="active-list-item">
+      <mat-icon matListItemIcon>home</mat-icon>
+      <div matListItemTitle>Home</div>
+    </a>
 
-        <button mat-list-item [routerLink]="'/admin-dashboard/profile'">
-            <mat-icon mat-list-icon>account_circle</mat-icon>
-            Profile
-        </button>
+    <a mat-list-item [routerLink]="'/admin-dashboard/profile'" routerLinkActive="active-list-item">
+      <mat-icon matListItemIcon>account_circle</mat-icon>
+      <div matListItemTitle>Profile</div>
+    </a>
 
-        <button mat-list-item [routerLink]="'/admin-dashboard/add-category'">
-            <mat-icon mat-list-icon>add_shopping_cart</mat-icon>
-            Add Categories
-        </button>
+    <a mat-list-item [routerLink]="'/admin-dashboard/add-category'" routerLinkActive="active-list-item">
+      <mat-icon matListItemIcon>add_shopping_cart</mat-icon>
+      <div matListItemTitle>Add Categories</div>
+    </a>
 
-        <button mat-list-item [routerLink]="'/admin-dashboard/categories'">
-            <mat-icon mat-list-icon>list</mat-icon>
-            Categories
-        </button>
+    <a mat-list-item [routerLink]="'/admin-dashboard/categories'" routerLinkActive="active-list-item">
+      <mat-icon matListItemIcon>list</mat-icon>
+      <div matListItemTitle>Categories</div>
+    </a>
 
-        <button mat-list-item [routerLink]="'/admin-dashboard/add-quiz'">
-            <mat-icon mat-list-icon>add</mat-icon>
-            Add Quiz
-        </button>
+    <a mat-list-item [routerLink]="'/admin-dashboard/add-quiz'" routerLinkActive="active-list-item">
+      <mat-icon matListItemIcon>add</mat-icon>
+      <div matListItemTitle>Add Quiz</div>
+    </a>
 
-        <button mat-list-item [routerLink]="'/admin-dashboard/quizzes'">
-            <mat-icon mat-list-icon>list</mat-icon>
-            View Quizes
-        </button>
-
-        <button mat-list-item [routerLink]="'/admin-dashboard/profile'">
-            <mat-icon mat-list-icon>logout</mat-icon>
-            Logout
-        </button>
-    </mat-action-list>
+    <a mat-list-item [routerLink]="'/admin-dashboard/quizzes'" routerLinkActive="active-list-item">
+      <mat-icon matListItemIcon>list</mat-icon>
+      <div matListItemTitle>View Quizzes</div>
+    </a>
+  </mat-nav-list>
 </mat-card>

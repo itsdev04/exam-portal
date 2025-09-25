@@ -12,4 +12,14 @@ export class QuestionService {
   getQuestionsByQuizId(quizId: number) {
     return this.httpClient.get(`${baseUrl}/question/quiz/all/${quizId}`);
   }
+  
+  addQuestion(question: any) {
+    console.log("Sending question data to backend:", question);
+    return this.httpClient.post(`${baseUrl}/question/`, question);
+  }
+  
+  deleteQuestion(questionId: number) {
+    return this.httpClient.delete(`${baseUrl}/question/${questionId}`);
+  }
+
 }
